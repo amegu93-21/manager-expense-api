@@ -1,3 +1,5 @@
+
+//WalletId, 
 export default class TransactionEntity {
     constructor({
         id,
@@ -11,6 +13,7 @@ export default class TransactionEntity {
         description,
         date,
         categoryId,
+        walletId,
         userId
     }) {
         this.id = id;
@@ -26,6 +29,7 @@ export default class TransactionEntity {
         this.description = description || "";
         this.date = date || new Date().toISOString().split("T")[0];
         this.categoryId = categoryId;
+        this.walletIdId = walletId;
         this.userId = userId;
     }
 }

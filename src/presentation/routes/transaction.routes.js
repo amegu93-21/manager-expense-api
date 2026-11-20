@@ -61,6 +61,11 @@ const router = Router();
  *               categoryId:
  *                 type: integer
  *                 example: 3
+ *               walletId:
+ *                  type: integer
+ *                  nullable: true
+ *                  example: 1
+ * 
  *     responses:
  *       201:
  *         description: Transacción creada y convertida con el tipo de cambio del día

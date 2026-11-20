@@ -1,4 +1,5 @@
 import app from './app.js';
+console.log('JWT_SECRET cargado:', !!process.env.JWT_SECRET);
 import { connectMongo } from './infrastructure/database/mongo/connection.js';
 import { connectMysql } from './infrastructure/database/mysql/connection.js';
 import CurrencyMongoRepository from './infrastructure/database/mongo/currency.mongo.repository.js';
