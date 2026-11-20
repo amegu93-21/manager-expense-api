@@ -67,7 +67,7 @@ router.get("/", authMiddleware, currencyController.getAllCurrencies);
  *       403:
  *          description: Acceso denegado. Solo los administradores pueden registrar o actualizar tipos de cambio
  */
-router.post("/", authMiddleware, roleMiddleware(["ADMIN"]), currencyController.saveCurrencyRateByDate);
+router.post("/", authMiddleware, roleMiddleware(["admin"]), currencyController.saveCurrencyRateByDate);
 
 /**
  * @swagger
