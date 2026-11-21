@@ -13,6 +13,18 @@ export default class TransactionController {
         }
     };
 
+    getPublicTransaction = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const transaction = await this.transactionService.getPublicTransactionById(id);
+        res.status(200).json(transaction);
+    } catch (error) {
+        const status = error.message === "Transaction not found" ? 404 : 403;
+        res.status(status).json({ error: error.message });
+    }
+    };
+
     getTransactionsByUserId = async (req, res) => {
         try {
             const transactions = await this.transactionService.getTransactionsByUserId(req.user.id);

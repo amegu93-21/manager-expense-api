@@ -89,6 +89,20 @@ export default class TransactionService {
     async getTransactionsByUserId(userId) {
         return await this.transactionRepository.findByUserId(userId);
     }
+    
+    async getPublicTransactionById(id) {
+    const transaction = await this.transactionRepository.findById(id);
+
+    if (!transaction) {
+        throw new Error("Transaction not found");
+    }
+
+    if (transaction.isPrivate) {
+        throw new Error("This transaction is private");
+    }
+
+    return transaction;
+    }
 
     async updateTransaction(id, data, userId) {
         const existing = await this.transactionRepository.findById(id);

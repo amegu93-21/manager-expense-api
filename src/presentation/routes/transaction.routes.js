@@ -70,6 +70,30 @@ const router = Router();
  *       201:
  *         description: Transacción creada y convertida con el tipo de cambio del día
  */
+
+/**
+ * @swagger
+ * /transactions/{id}/public:
+ *   get:
+ *     summary: Consultar el comprobante público de una transacción
+ *     tags: [Transactions]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID de la transacción
+ *     responses:
+ *       200:
+ *         description: Comprobante de la transacción obtenido correctamente
+ *       403:
+ *         description: La transacción es privada
+ *       404:
+ *         description: Transacción no encontrada
+ */
+
+router.get("/:id/public", transactionController.getPublicTransaction);
 router.post("/", authMiddleware, transactionController.createTransaction);
 
 /**
